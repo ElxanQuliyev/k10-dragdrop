@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#w3school,#facebook,#twitter,#instagram,#w3schoolyeri,#facebookyeri,#twitteryeri,#instagramyeri {
+  float: left;
+  width: 100px;
+  height: 55px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+<script>
+function uzerinegelende(hadise)
+{
+hadise.preventDefault();
+//console.log("uzerine geldi");
+}
+function terpendende(hadise)
+{
+    hadise.dataTransfer.setData("txt", hadise.target.id);
+    //console.log("tepenende "+hadise.dataTransfer.getData("txt"));
+}
+function yapisdir(hadise)
+{
+    hadise.preventDefault();
+    var data = hadise.dataTransfer.getData("txt");
+    hadise.target.appendChild(document.getElementById(data));
+    var ins=document.getElementById("instagramyeri").querySelector("#inginstagram");
+    var fb=document.getElementById("facebookyeri").querySelector("#imgfacebook");
+    var twitter=document.getElementById("twitteryeri").querySelector("#imgtwitter");
+    var w3school=document.getElementById("w3schoolyeri").querySelector("#imgw3school");
+    
+    setTimeout(() => {
+    if(ins.id=="inginstagram" && fb.id=="imgfacebook" 
+    && twitter.id=="imgtwitter" && w3school.id=="imgw3school" )
+    {
+     alert("cavab duzgundur");
+    } 
+    }, 3000);
+   
+}
+</script>
+</head>
+<body>
+
+<div id="w3school" ondrop="yapisdir(event)" ondragover="uzerinegelende(event)" >
+  <img src="W3Schools.png" id="imgw3school" draggable="true" ondragstart="terpendende(event)"
+  width="88" height="31">
+</div>
+<div id="facebook" ondrop="yapisdir(event)" ondragover="uzerinegelende(event)" >
+    <img src="facebook.png" id="imgfacebook" draggable="true" ondragstart="terpendende(event)"
+    width="88" height="31">
+</div>
+<div id="twitter" ondrop="yapisdir(event)" ondragover="uzerinegelende(event)" >
+    <img src="twitter.png" id="imgtwitter" draggable="true" ondragstart="terpendende(event)"
+    width="88" height="31">
+</div>
+<div id="instagram" ondrop="yapisdir(event)" ondragover="uzerinegelende(event)" >
+    <img src="instagram.png" id="inginstagram" draggable="true" ondragstart="terpendende(event)"
+    width="88" height="31">
+</div>
+
+<div style="clear:both;"></div>
+<div id="instagramyeri" ondragover="uzerinegelende(event)" 
+ondrop="yapisdir(event)">instagram</div>
+<div id="twitteryeri" ondragover="uzerinegelende(event)" 
+ondrop="yapisdir(event)">twitter</div>
+<div id="facebookyeri" ondragover="uzerinegelende(event)" 
+ondrop="yapisdir(event)">facebook</div>
+<div id="w3schoolyeri" ondragover="uzerinegelende(event)" 
+ondrop="yapisdir(event)">w3school</div>
+
+
+
+</body>
+</html>
